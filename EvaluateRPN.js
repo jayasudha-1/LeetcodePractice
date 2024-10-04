@@ -30,6 +30,6 @@ var evalRPN = function(tokens) {
 };
 
 //Test case
-let tokens = ["2","1","+","3","*"];
+let tokens = ["2","1","+","3","*"]; //((2 + 1) * 3) = 9//output-9
 let result = evalRPN(tokens);
 console.log(result);
