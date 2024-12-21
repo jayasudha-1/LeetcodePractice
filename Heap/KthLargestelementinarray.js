@@ -31,3 +31,25 @@ Result: The root of the heap (5) is the 2nd largest element.
 Output: 5
 
 */
+
+
+//Another Approach:
+
+var findKthLargest = function(nums, k) {
+    const minHeap = new MinPriorityQueue();
+
+    // Add the first k elements to the heap
+    for (let i = 0; i < k; i++) {
+        minHeap.enqueue(nums[i]);
+    }
+
+    // For the rest of the elements, if they are larger than the heap's root, replace it
+    for (let i = k; i < nums.length; i++) {
+        if (nums[i] > minHeap.front().element) {
+            minHeap.dequeue();
+            minHeap.enqueue(nums[i]);
+        }
+    }
+
+    return minHeap.front().element; // The root of the Min Heap is the kth largest element
+};
