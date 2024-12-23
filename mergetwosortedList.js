@@ -1,7 +1,7 @@
 //Iterative Method: time :O(m+n), space: O(1)
 var mergeTwoLists = function(list1, list2) {
     // Create a dummy node to help build the result list
-    let dummy = new ListNode(-1);
+    let dummy = new ListNode(0);
     let current = dummy;
     
     // Traverse both lists while both are non-empty
@@ -16,8 +16,13 @@ var mergeTwoLists = function(list1, list2) {
         current = current.next;
     }
     
-    // If one of the lists is not empty, attach it to the end of the result
-    current.next = list1 !== null ? list1 : list2;
+      // If there are remaining nodes in either list, append them
+    if (list1 !== null) {
+        current.next = list1;
+    }
+    if (list2 !== null) {
+        current.next = list2;
+    }
     
     // Return the merged list, which starts from the next node of dummy
     return dummy.next;
