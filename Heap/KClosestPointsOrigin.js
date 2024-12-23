@@ -30,3 +30,26 @@ var kClosest = function(points, k) {
     
     return result;
 };
+
+
+var kClosest = function(points, k) {
+    // Calculate squared distance from origin
+    const distance = (point) => point[0] * point[0] + point[1] * point[1];
+    
+    // Use a Min-Heap (Priority Queue)
+    const minHeap = new MinPriorityQueue({ priority: (point) => distance(point) });
+    
+    // Add all points to the Min-Heap
+    for (let point of points) {
+        minHeap.enqueue(point);
+    }
+    
+    // Extract k closest points
+const result = [];
+let count = 0;
+while (count < k) {
+    result.push(minHeap.dequeue().element);
+    count++;
+}
+return result;
+}
