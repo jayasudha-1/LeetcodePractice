@@ -18,6 +18,20 @@ var jump = function(nums) {
 };
 
 /*
+Jump Game (I):
+
+We only care if we can reach the end, not how.
+Track the farthest point reachable and ensure you don't get stuck.
+Jump Game II:
+
+It's guaranteed that we can reach the end.
+Minimize the number of jumps by tracking:
+currentReach: How far the current jump can go.
+nextReach: How far the next jump can go.
+Increase jumps only when i reaches currentReach.
+*/
+
+/*
 Example 1:
 
 Input: nums = [2,3,1,1,4]
