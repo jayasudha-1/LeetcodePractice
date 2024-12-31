@@ -27,7 +27,7 @@ var pacificAtlantic = function(heights) {
         dfs(row, col - 1, visited, heights[row][col]);
     };
     
-    // Run DFS for Pacific (Top row + Left column)
+    // Run DFS for Pacific (Top row + Left column) This ensures that all cells connected to the Pacific Ocean (either from the top row or left column) are marked as true in the pacific matrix.
     for (let i = 0; i < m; i++) dfs(i, 0, pacific, heights[i][0]);
     for (let j = 0; j < n; j++) dfs(0, j, pacific, heights[0][j]);
     
